@@ -1,0 +1,83 @@
+body{
+    background: url(html6.jpeg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    margin:0;
+}
+.singup{
+      text-align: center;
+      font-size: 21px;
+      font-style: normal;
+      width: 370px;
+      height: 750px;
+      margin: auto;
+      background-color: rgba(3000,3000,3000, 0.4);
+      border-radius: 10px;
+      padding: 20px;
+    
+}
+.login{
+    text-align: center;
+    font-size: 21px;
+    width: 430px;
+    height:400px;
+    margin: auto;
+    background-color: rgba(3000,3000,3000, 0.3);
+    border-radius: 3px;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+    color: #2e2121;
+    font-weight: 200;
+}
+h4{
+    text-align: center;
+    color: #1a1919;
+    padding-top: 20px;
+}
+form{
+    text-align: center;
+    width: 300px;
+    margin-left: 20px;
+}
+
+form label{
+    
+    display: flex;
+    margin-top: 25px;
+    font-size: 18px;
+
+}
+form input{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border: 1x solid gray;
+    border-radius:6px ;
+    outline: none;
+}
+
+input[type="submit"]{
+width: 300px;
+height: 35px;
+margin-top: 20px;
+border: none;
+background-color:rgb(74, 67, 67);
+color: white;
+font-size: 18px;
+cursor: pointer;
+}
+input[type="submit"]hover{
+color:white;
+background: rgb(71, 66, 66);
+}
+
+p{
+    text-align: center;
+    padding-top:20px ;
+    font-size: 15px;
+
+}
