@@ -1,1 +1,4 @@
-echo"i am pulak";
+<?php
+    echo"i am pulak";
+
+?>

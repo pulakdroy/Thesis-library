@@ -1,0 +1,74 @@
+/* Add or update these styles in your existing style.css file */
+
+/* Faculty Profile Header Section */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #3498db;
+    color: #fff;
+}
+
+.faculty-info {
+    max-width: 60%;
+}
+
+.faculty-info h1 {
+    margin: 0;
+}
+
+/* Faculty Picture */
+img {
+    max-width: 200px;
+    /* border-radius: 50%; For circular images */
+}
+
+/* Green Light Icon */
+.thesis-availability {
+    display: flex;
+    align-items: center;
+}
+
+.green-light {
+    width: 15px;
+    height: 15px;
+    background-color: #4CAF50; /* Green color */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Faculty Profile Content Section */
+.profile-content {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Profile Navigation*/
+.profile-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+} 
+
+.profile-navigation li {
+    margin-right: 20px;
+}
+
+.profile-navigation a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+} 
+
+/* Profile Sections */
+.profile-section {
+    margin-top: 20px;
+}
+
+.profile-section h2 {
+    color: #2e86de;
+}
+
+/* Add more styling as needed for specific sections (biography, publications, past thesis) */
