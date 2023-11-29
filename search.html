@@ -9,17 +9,7 @@
       <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h2> </h2>
-            <p><h5>Continue with g-suite</h5></p>
-            <form action="#" method="post">
-                <input type="email"  placeholder="g-suite" id="email" name="email" required>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
+
     <script src="script1.js"></script>
     <header>
          <nav class="navbar">
@@ -32,8 +22,8 @@
                     <li><a href="landing.html">Home</a></li>
                     <li><a href="supervisor.html">Supervisors</a></li>
                     <li><a href="resources1.html">Resources</a></li>
-                    <li><a href="sign.html">signup</a></li>
-                    <li><a href="upload.html">Upload</a></li>
+                    <li><a href="sign.html">Uplode</a></li>
+                    <li><a href="studentlog.html">Student Login</a></li>
                     
                 </ul>
 
@@ -41,17 +31,19 @@
          </nav>
     </header>
 
-    <div class="page">
-        <div class="page2">
-            <p>Want to see thesis paper from students?</p>
-            
-            <div class="search-box">
-                   <input type="text" class="search" placeholder="Search here">
-            </div>
-        </div>
-    </div>
-
+        <h2>Search and Connect</h2>
+        
+        <input type="text" id="search-box" placeholder="Enter item name...">
+        <button onclick="searchItems()">Search</button>
     
-</body>
-</html>
-
+        <div id="result-container"></div>
+    
+        <!-- Static items on the webpage -->
+        <div id="mango" class="item">Mango Item</div>
+        <div id="jackfruit" class="item">Jackfruit Item</div>
+        <div id="apple" class="item">Apple Item</div>
+    
+        <script src="script.js"></script>
+    
+    </body>
+    </html>

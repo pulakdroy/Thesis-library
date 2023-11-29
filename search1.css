@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#search-box {
+    width: 300px;
+    padding: 8px;
+}
+
+#result-container {
+    margin-top: 20px;
+}
+
+.item {
+    display: none;
+}
