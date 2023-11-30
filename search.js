@@ -2,7 +2,7 @@
 var books = [
     { name: "A newly developed CNN Model for Eye Disease Detection,Khalil sir, spring2022", path: "thesis.papers/khalilsir1.pdf" },
     { name: "ML", path: "#" },
-    { name: "AI", path: "#" },
+    { name: "AI ML", path: "#" },
     { name: "NLP", path: "#" },
     { name: "Deep fake", path: "#" },
     { name: "Dr. Mohammad Kaykobad", path: "faculty1.html" },

@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(70, 80, 105);
+    background:url(landing.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -72,12 +72,12 @@ body{
 }
 
 .container1, .container2, .container3 {
-    background-color: rgb(161, 161, 208);
+    background-color: rgb(160, 160, 184);
     width: 240px;
     height: 170px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #370b8e;
+    border: 1px solid #1d172a;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -86,17 +86,6 @@ body{
     color: #413f3f;
 }
 h2{
-    color: #171435;
-}
-
-footer {
-    background-color:rgb(62, 59, 75);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    height: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    color: #0f0d20;
 }
 
