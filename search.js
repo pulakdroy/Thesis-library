@@ -1,10 +1,17 @@
 // Sample book data with file paths
 var books = [
     { name: "A newly developed CNN Model for Eye Disease Detection,Khalil sir, spring2022", path: "thesis.papers/khalilsir1.pdf" },
-    { name: "Clean Code eye", path: "path/to/clean_code.pdf" },
-    { name: "The Great Gatsby", path: "path/to/great_gatsby.pdf" },
-    { name: "To Kill  eye a Mockingbird", path: "path/to/to_kill_a_mockingbird.pdf" },
-    { name: "The Catcher in the Rye", path: "path/to/catcher_in_the_rye.pdf" }
+    { name: "ML", path: "#" },
+    { name: "AI", path: "#" },
+    { name: "NLP", path: "#" },
+    { name: "Deep fake", path: "#" },
+    { name: "Dr. Mohammad Kaykobad", path: "faculty1.html" },
+    { name: "Dr. Md. Khalilur Rahman", path: "faculty2.html" },
+    { name: "Dr. Amitahba Chakrabarty", path: "faculty3.html" },
+    { name: "Dr. Muhammad Iqbal Hossain", path: "faculty4.html" },
+    { name: "Tawhid Anwar", path: "faculty5.html" },
+    { name: "Nishat Nayla", path: "faculty6.html" }
+    
 ];
 
 function searchBooks() {
