@@ -63,21 +63,39 @@ h2{
     font-family: "Montserrat",sans-serif;
 }
 
-.search-box{
-    align-items: center;
-    width: 300px;    
-    height: 40px;
+.container {
+    display:inline;
+    max-width: 400px;
+    margin: auto;
+}
+
+#search-box {
+    width: 360px;
+    padding: 8px;
+}
+
+button {
+    display: inline;
+    padding: 6px;
+    margin: 0px;
     
 }
-.search {
-    border: none;
-    padding: 8px;
-    border-radius: 50px;
-    font-size: 15px;
-    text-align: left;
-    width: 400px;
-    height: 30px;
+
+
+
+
+#result-container {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    color: white;
 }
+
+#result-container li {
+    margin: 5px 0;
+    
+}
+
 /*
 .search-icon {
     width: 30px;

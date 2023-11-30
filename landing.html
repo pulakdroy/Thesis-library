@@ -44,13 +44,16 @@
     <div class="page">
         <div class="page2">
             <p>Want to see thesis paper from students?</p>
-            
-            <div class="search-box">
-                   <input type="text" class="search" placeholder="Search here">
+            <div class="container">
+                <input type="text" id="search-box" placeholder="Search">
+                <button onclick="searchBooks()">Search</button>
+                <div class="result">
+                <ul id="result-container"></ul>
+                </div>
             </div>
         </div>
     </div>
-
+    <script src="search.js"></script>
     
 </body>
 </html>
