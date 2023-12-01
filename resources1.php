@@ -19,11 +19,11 @@
                 </div>
                 <div class="navmenu">
                     <ul>
-                        <li><a href="landing.html">Home</a></li>
-                        <li><a href="supervisor.html">Supervisors</a></li>
-                        <li><a href="resources1.html">Resources</a></li>
-                        <li><a href="sign.html">Signup</a></li>
-                        <li><a href="upload.html">Upload</a></li>
+                        <li><a href="landing.php">Home</a></li>
+                        <li><a href="supervisor.php">Supervisors</a></li>
+                        <li><a href="resources1.php">Resources</a></li>
+                        <li><a href="sign.php">Signup</a></li>
+                        <li><a href="upload.php">Upload</a></li>
                     </ul>
                 </div>
             </nav>

@@ -19,11 +19,11 @@
 
             <div class="navmenu">
                 <ul>
-                    <li><a href="landing.html">Home</a></li>
-                    <li><a href="supervisor.html">Supervisors</a></li>
-                    <li><a href="resources1.html">Resources</a></li>
-                    <li><a href="sign.html">Uplode</a></li>
-                    <li><a href="studentlog.html">Student Login</a></li>
+                    <li><a href="landing.php">Home</a></li>
+                    <li><a href="supervisor.php">Supervisors</a></li>
+                    <li><a href="resources1.php">Resources</a></li>
+                    <li><a href="sign.php">Uplode</a></li>
+                    <li><a href="studentlog.php">Student Login</a></li>
                     
                 </ul>
 

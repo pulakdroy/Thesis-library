@@ -23,11 +23,11 @@
             </div>
             <div class="navmenu">
                 <ul>
-                    <li><a href="landing.html">Home</a></li>
-                    <li><a href="supervisor.html">Supervisors</a></li>
-                    <li><a href="resources1.html">Resources</a></li>
-                    <li><a href="sign.html">Signup</a></li>
-                    <li><a href="Upload.html">Upload</a></li>
+                    <li><a href="landing.php">Home</a></li>
+                    <li><a href="supervisor.php">Supervisors</a></li>
+                    <li><a href="resources1.php">Resources</a></li>
+                    <li><a href="sign.php">Signup</a></li>
+                    <li><a href="Upload.php">Upload</a></li>
                 </ul>
 
             </div>
@@ -49,7 +49,7 @@
         <div class="faculty-container">
             <!-- Faculty Profile 1 -->
             <div class="faculty-profile" id="faculty1">
-                <a href="faculty1.html">
+                <a href="faculty1.php">
                     <img src="images/Professor-Kaykobad.png" alt="Faculty 1">
                     <h2>Dr. Mohammad Kaykobad</h2>
                     <p>Distinguished Professor</p>
@@ -62,7 +62,7 @@
         
             <!-- Faculty Profile 2 -->
             <div class="faculty-profile" id="faculty2">
-                <a href="faculty2.html">
+                <a href="faculty2.php">
                     <img src="images/Dr.-Md.-Khalilur-Rhaman.jpg" alt="Faculty 2">
                     <h2>Dr. Md. Khalilur Rahman</h2>
                     <p>Professor</p>
@@ -75,7 +75,7 @@
         
             <!-- Faculty Profile 3 -->
             <div class="faculty-profile" id="faculty3">
-                <a href="faculty3.html">
+                <a href="faculty3.php">
                     <img src="images/amitabhaSir.jpg" alt="Faculty 3">
                     <h2>Dr. Amitahba Chakrabarty</h2>
                     <p>Professor</p>
@@ -88,7 +88,7 @@
 
             <!-- Faculty Profile 4 -->
             <div class="faculty-profile" id="faculty4">
-                <a href="faculty4.html">
+                <a href="faculty4.php">
                     <img src="images/mihjpg.jpg" alt="Faculty 4">
                     <h2>Dr. Muhammad Iqbal Hossain</h2>
                     <p>Associate Professor</p>
@@ -101,7 +101,7 @@
         
             <!-- Faculty Profile 5 -->
             <div class="faculty-profile" id="faculty5">
-                <a href="faculty5.html">
+                <a href="faculty5.php">
                     <img src="images/Tawhid.jpg" alt="Faculty 5">
                     <h2>Tawhid Anwar</h2>
                     <p>Senior Lecturer</p>
@@ -114,7 +114,7 @@
 
              <!-- Faculty Profile 6 -->
              <div class="faculty-profile" id="faculty6">
-                <a href="faculty6.html">
+                <a href="faculty6.php">
                     <img src="images/nishat_nayla.jpg" alt="Faculty 6">
                     <h2>Nishat Nayla</h2>
                     <p>C. Lecturer</p>

@@ -15,11 +15,11 @@
            </div>
            <div class="navmenu">
                <ul>
-                   <li><a href="landing.html">Home</a></li>
-                   <li><a href="supervisor.html">Supervisors</a></li>
-                   <li><a href="resources1.html">Resources</a></li>
-                   <li><a href="sign.html">Signup</a></li>
-                   <li><a href="upload.html">Upload</a></li>
+                   <li><a href="landing.php">Home</a></li>
+                   <li><a href="supervisor.php">Supervisors</a></li>
+                   <li><a href="resources1.php">Resources</a></li>
+                   <li><a href="sign.php">Signup</a></li>
+                   <li><a href="upload.php">Upload</a></li>
                </ul>
            </div>
         </nav>
@@ -45,10 +45,10 @@
             <input type="submit" name="" value="Submit">
         </form>
     
-        <p> Alrady have an account?<a href="studentlog.html" >Login</a> </p>
+        <p> Alrady have an account?<a href="studentlog.php" >Login</a> </p>
     
-    <div class="uplode" onclick="goToPage('Uplode Thesis paper')">
-        <li><a href="upload.html">Uplode your thesis paper here</a></li>
+    <div class="upload" onclick="goToPage('Uplode Thesis paper')">
+        <li><a href="upload.php">Uplode your thesis paper here</a></li>
 
     </div>   
     </div>
