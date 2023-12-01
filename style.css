@@ -49,13 +49,14 @@ body{
       font-style: normal;
       width: 380px;
       height: 720px;
-      margin: 30px 510px ;
+      margin: 100px auto ;
       background-color: rgba(3000,3000,3000, 0.4);
       border-radius: 17px;
       padding: 20px;
-    
+
+
 }
-.uplode{
+.upload{
     background-color: #efe7e7;
     padding: 30px;
     height: 20px;

@@ -1,12 +1,11 @@
 <?php
-
-$servername = "localhost";
+$servername = 'localhost';
 $username = "root";
 $password = "";
-$dbname = "thesislibrary";
+$dbname = "thesis_library";
 
 //Create connection 
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername,$username,$password,$dbname);
 
 
 //Check connection
@@ -15,9 +14,8 @@ if($conn->connect_error) {
 }
 else{
     mysqli_select_db($conn, $dbname);
-    echo "Connection Successful";
-    
+    // echo "Connection Successful";
 }
-
+    
 
 ?>
