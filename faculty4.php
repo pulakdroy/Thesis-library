@@ -68,8 +68,8 @@
     <div id="past-thesis" class="profile-section">
         <h2>Past Thesis</h2>
         <ul>
-            <li>Spring 2023<br><h4>1. Shohojogi: An Automated Voice Chat System in the Bengali language for banking system</h4><br><h4>2. Blockchain Based E-Voting System With Homomorphic Encryption and Threshold Signature</h4></li>
-            <li>Fall 2022<br><h4>1. Automated Feedback Test Generation and functionality testing for UI Development with Self-Guided Recommendation</h4><br><h4>2. Non-clinical covid19 diagnosis on CT-Scan, Chest X-Ray, and respiratory patterns using Deep-Learning and Signal Processing</h4></li>
+            <li><a href="thesis.papers/iqbalsir1.pdf">Deepfake detection using Neural Network</li>
+            
             <!-- Add more past theses as needed -->
         </ul>
     </div>

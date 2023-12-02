@@ -1,4 +1,3 @@
-
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -14,7 +13,7 @@ if (isset($_POST['name']) && isset($_POST['s_id']) && isset($_POST['email']) && 
     $email = $_POST["email"];
     $phoneNumber = $_POST["phn"];
     $department = $_POST["dept"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password = $_POST["password"];
 
     $sql = "SELECT * FROM create_account WHERE email = '$email' ";
 
@@ -40,10 +39,5 @@ if (isset($_POST['name']) && isset($_POST['s_id']) && isset($_POST['email']) && 
 
         }
     }
-
-
 }
-
-
-
 ?>

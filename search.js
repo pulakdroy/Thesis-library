@@ -3,14 +3,15 @@ var books = [
     { name: "A newly developed CNN Model for Eye Disease Detection,Khalil sir, spring2022", path: "thesis.papers/khalilsir1.pdf" },
     { name: "ML", path: "#" },
     { name: "AI ML", path: "#" },
-    { name: "NLP", path: "#" },
-    { name: "Deep fake", path: "#" },
-    { name: "Dr. Mohammad Kaykobad", path: "faculty1.html" },
-    { name: "Dr. Md. Khalilur Rahman", path: "faculty2.html" },
-    { name: "Dr. Amitahba Chakrabarty", path: "faculty3.html" },
-    { name: "Dr. Muhammad Iqbal Hossain", path: "faculty4.html" },
-    { name: "Tawhid Anwar", path: "faculty5.html" },
-    { name: "Nishat Nayla", path: "faculty6.html" }
+    // { name: "NLP",  path: "thesis.papers/iqbalsir1.pdf" },
+    // { name: "nlp",  path: "thesis.papers/iqbalsir1.pdf" },
+    { name: "Deepfake detection Using Neural Networks, Iqbal sir, fall2021, NLP, nlp", path: "thesis.papers/iqbalsir1.pdf" },
+    { name: "Dr. Mohammad Kaykobad", path: "faculty1.php" },
+    { name: "Dr. Md. Khalilur Rahman", path: "faculty2.php" },
+    { name: "Dr. Amitahba Chakrabarty", path: "faculty3.php" },
+    { name: "Dr. Muhammad Iqbal Hossain", path: "faculty4.php" },
+    { name: "Tawhid Anwar", path: "faculty5.php" },
+    { name: "Nishat Nayla", path: "faculty6.php" }
     
 ];
 

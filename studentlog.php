@@ -25,13 +25,13 @@
 
 <div class="login">
     <h1>Login to Thesis Library</h1>
-    <form action="login.php" class="form_design" method="post">
+    <form method="POST" action="login.php">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <input type="submit" value="Login">
+        <input type="submit" value="submit">
     </form>
 
     <p>Don't have an account? <a href="sign.php">Sign up</a></p>

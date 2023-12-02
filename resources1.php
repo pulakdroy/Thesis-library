@@ -22,7 +22,7 @@
                         <li><a href="landing.php">Home</a></li>
                         <li><a href="supervisor.php">Supervisors</a></li>
                         <li><a href="resources1.php">Resources</a></li>
-                        <li><a href="sign.php">Signup</a></li>
+                        <li><a href="studentlog.php">Log in</a></li>
                         <li><a href="upload.php">Upload</a></li>
                     </ul>
                 </div>

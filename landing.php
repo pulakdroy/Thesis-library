@@ -1,14 +1,23 @@
 <?php
-// Check if a specific query parameter is set
-$showPopup = isset($_GET['showPopup']) ? $_GET['showPopup'] : false;
 
-// Check if the user is logged in (you need to implement the actual check)
-$isLoggedIn = false; // Replace this with your actual check for user login status
+require_once("DBconnect.php");
+session_start();
+// var_dump($_SESSION);
+// Check if $userDetails is set and not null
+if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+    // Fetch user details from the database based on user ID
+    $userId = $_SESSION['user_id'];
+    $fetchUserSql = "SELECT * FROM create_account WHERE Student_ID = '$userId'";
+    $result = mysqli_query($conn, $fetchUserSql);
 
-// If the user is logged in, redirect them to the profile page
-if ($isLoggedIn) {
-    header("Location: profile.php");
-    exit();
+    if ($result && mysqli_num_rows($result) > 0) {
+        // Fetch the user details as an associative array
+        $userDetails = mysqli_fetch_assoc($result);
+
+        // Now $userDetails contains the user details
+    } else {
+        // Handle the case where the user details couldn't be fetched
+    }
 }
 ?>
 
@@ -23,28 +32,28 @@ if ($isLoggedIn) {
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
+    <?php 
 
-<?php
-// Show the popup only if the query parameter is set to true
-if ($showPopup) {
+    if(isset($_SESSION['logged_in']) && $_SESSION["logged_in"]){
+        //do notheing
+    }
+    else {
+        echo '<div id="popup" class="popup">';
+        echo '<div class="popup-content">';
+            echo '<span class="close-btn" onclick="closePopup()">&times;</span>';
+            echo '<h2></h2>';
+            echo '<p><h5>Continue with g-suite</h5></p>';
+            echo '<form id="emailForm">';
+                echo '<input type="email" placeholder="g-suite" id="email" name="email" required>';
+                echo '<input type="submit" value="Submit">';
+            echo '</form>';
+        echo '</div>';
+    echo '</div>';
+    }   
+    
     ?>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h2></h2>
-            <p><h5>Continue with g-suite</h5></p>
-            <form id="emailForm">
-                <input type="email" placeholder="g-suite" id="email" name="email" required>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div>
     <script src="script1.js"></script>
-<?php
-}
-?>
-
-<header>
+    <header>
     <nav class="navbar">
         <div class="logo">
             <h2>Thesis Library</h2>
@@ -54,67 +63,80 @@ if ($showPopup) {
             <ul>
                 <li><a href="landing.php">Home</a></li>
                 <li><a href="supervisor.php">Supervisors</a></li>
-                <li><a href="resourses1.php">Resources</a></li>
+                <li><a href="resources1.php">Resources</a></li>
 
                 <?php
-                // Show different options based on user login status
-                if ($isLoggedIn) {
-                    // Show profile option if logged in
+
+                if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
                     echo '<li><a href="profile.php">Profile</a></li>';
                 } else {
-                    // Show student login option if not logged in
-                    echo '<li><a href="studentlog.php">Student Login</a></li>';
+                    echo '<li><a href="studentlog.php" onclick="openPopup()">Student Login</a></li>';
                 }
                 ?>
 
                 <li><a href="upload.php">Upload</a></li>
-            </ul>
+             </ul>
         </div>
     </nav>
-</header>
+    </header>
 
-<div class="page">
-    <div class="page2">
-        <p>Want to see thesis paper from students?</p>
-        <div class="container">
-            <input type="text" id="search-box" placeholder="Search by Topic or Supervisor">
-            <button onclick="searchBooks()">Search</button>
-            <div class="result">
-                <ul id="result-container"></ul>
+    <!-- <script>
+        // Function to open the popup
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        // Rest of your JavaScript code
+    </script> -->
+
+    <div class="page">
+        <div class="page2">
+            <p>Want to see thesis paper from students?</p>
+            <div class="container">
+                <input type="text" id="search-box" placeholder="Search by Topic or Supervisor">
+                <button onclick="searchBooks()">Search</button>
+                <div class="result">
+                    <ul id="result-container"></ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="search.js"></script>
+    <script src="search.js"></script>
 
-<script>
-    document.getElementById("emailForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        var email = document.getElementById("email").value;
-        var xhr = new XMLHttpRequest();
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                    console.log(xhr.responseText);
+    <script>
 
-                    closePopup();
-                } else {
-                    console.error("Error:", xhr.status, xhr.statusText);
+        document.getElementById("emailForm").addEventListener("submit", function (event) {
+            event.preventDefault(); 
+            var email = document.getElementById("email").value;
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log(xhr.responseText);
+
+                        closePopup();
+                    } else {
+
+                        console.error("Error:", xhr.status, xhr.statusText);
+
+                    }
                 }
-            }
-        };
+            };
 
-        xhr.open("POST", "student_email.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("email=" + encodeURIComponent(email));
-    });
+            xhr.open("POST", "student_email.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send("email=" + encodeURIComponent(email));
+        });
 
-    function closePopup() {
-        document.getElementById("popup").style.display = "none";
-    }
-</script>
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+
 
 </body>
 </html>
