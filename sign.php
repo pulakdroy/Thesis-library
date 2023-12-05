@@ -18,8 +18,7 @@
                    <li><a href="landing.php">Home</a></li>
                    <li><a href="supervisor.php">Supervisors</a></li>
                    <li><a href="resources1.php">Resources</a></li>
-                   <!-- <li><a href="sign.php">Signup</a></li>
-                   <li><a href="upload.php">Upload</a></li> -->
+
                </ul>
            </div>
         </nav>
@@ -34,8 +33,6 @@
             <input type="text" name="s_id" required>
             <label>Email</label>
             <input type="email" name="email" required>
-            <!-- <label>G-suite</label>
-            <input type="email" name="gsuit" required> -->
             <label>Phone number</label>
             <input type="text" name="phn" required>
             <label>Department</label>
@@ -47,8 +44,7 @@
     
         <p> Alrady have an account?<a href="studentlog.php">Login</a> </p>
     
-    <!-- <div class="upload" onclick="goToPage('Uplode Thesis paper')">
-        <li><a href="upload.php">Upload your thesis paper here</a></li> -->
+
 
     </div>   
     </div>

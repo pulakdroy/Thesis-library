@@ -23,7 +23,7 @@
                         <li><a href="supervisor.php">Supervisors</a></li>
                         <li><a href="resources1.php">Resources</a></li>
                         <li><a href="studentlog.php">Log in</a></li>
-                        <li><a href="upload.php">Upload</a></li>
+                        <!-- <li><a href="upload.php">Upload</a></li> -->
                     </ul>
                 </div>
             </nav>
@@ -50,7 +50,7 @@
         <div class="container2" onclick="goToPage('guideline')">
             <h2>Guideline</h2>
             <br>
-            <p><a href="resousces/guid.docx" onclick="downloadFile()">Download File</a></p>
+            <p><a href="resousces/guide.docx" onclick="downloadFile()">Download File</a></p>
         </div>
         <div class="container3" onclick="goToPage('citation')">
             <h2>Citation</h2>

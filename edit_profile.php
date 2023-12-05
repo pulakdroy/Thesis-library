@@ -15,23 +15,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Sanitize and validate the input data as needed
 
     // Update user information in the database
-    $userId = $_SESSION['user_id'];
+    $studentId = $_SESSION['user_id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone_number = $_POST['phone_number'];
     $department = $_POST['department'];
 
     // Update the user details in the database (modify this query based on your database structure)
-    $updateSql = "UPDATE create_account SET name = '$name', email = '$email', phone_number = '$phone_number', department = '$department' WHERE id = '$userId'";
+    $updateSql = "UPDATE create_account SET name = '$name', email = '$email', phone_number = '$phone_number', department = '$department' WHERE student_id = '$student_Id'";
+    echo "Name: $name, Email: $email, Phone Number: $phone_number, Department: $department";
+
 
     if (mysqli_query($conn, $updateSql)) {
-        // Update successful, you might want to redirect to the profile page or show a success message
+        // Update successful
         header("Location: profile.php");
         exit();
     } else {
         // Handle the case where the update fails
         $error_message = "Error updating user information: " . mysqli_error($conn);
+        echo $error_message; // Display the error for debugging purposes
     }
+    
 }
 
 // Fetch user details for pre-filling the form

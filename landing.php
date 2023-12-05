@@ -74,7 +74,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                 }
                 ?>
 
-                <li><a href="upload.php">Upload</a></li>
+                <!-- <li><a href="upload.php">Upload</a></li> -->
              </ul>
         </div>
     </nav>

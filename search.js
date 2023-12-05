@@ -1,8 +1,8 @@
 // Sample book data with file paths
 var books = [
-    { name: "A newly developed CNN Model for Eye Disease Detection,Khalil sir, spring2022", path: "thesis.papers/khalilsir1.pdf" },
-    { name: "ML", path: "#" },
-    { name: "AI ML", path: "#" },
+    { name: "A newly developed CNN Model for Eye Disease Detection,Khalil sir, spring2022, ML, ml", path: "thesis.papers/khalilsir1.pdf" },
+    { name: "ML", path: "thesis.papers/khalilsir1.pdf" },
+    { name: "AI ML", path: "thesis.papers/khalilsir1.pdf" },
     // { name: "NLP",  path: "thesis.papers/iqbalsir1.pdf" },
     // { name: "nlp",  path: "thesis.papers/iqbalsir1.pdf" },
     { name: "Deepfake detection Using Neural Networks, Iqbal sir, fall2021, NLP, nlp", path: "thesis.papers/iqbalsir1.pdf" },

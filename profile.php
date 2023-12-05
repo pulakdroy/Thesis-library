@@ -23,6 +23,13 @@ session_start();
             <h2>Thesis Library</h2>
         </div>
         <!-- Add any navigation links if needed -->
+        <div class="navmenu">
+            <ul>
+                <li><a href="Homepage.php">Home</a></li>
+                <li><a href="supervisor.php">Supervisors</a></li>
+                <li><a href="resources1.php">Resources</a></li>
+            </ul>
+        </div>
     </nav>
 </header>
 
@@ -44,11 +51,19 @@ session_start();
 
         <!-- <label for="department">Department:</label> -->
         <span id="department"><b>Department: </b><?php echo $_SESSION['department'] ?></span>
+
+    </div>
+    
+        <!-- Add an Upload button -->
+    <div class="upload-button">
+        <form action="upload.php" method="get">
+            <button type="submit">Upload</button>
+        </form>
     </div>
 
     <!-- Add more profile details as needed -->
 
-    <!-- <p><a href="edit_profile.php">Edit Profile</a></p> -->
+    <p><a href="edit_profile.php">Edit Profile</a></p>
     <p><a href="logout.php">Logout</a></p>
 </div>
 
