@@ -61,6 +61,12 @@ session_start();
         </form>
     </div>
 
+    <!-- Inside the delete-button div in your user profile page -->
+    <form method="get" action="delete.php">
+        <button type="submit" name="Student_ID" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</button>
+    </form>
+
+
     <!-- Add more profile details as needed -->
 
     <p><a href="edit_profile.php">Edit Profile</a></p>

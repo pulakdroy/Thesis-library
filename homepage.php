@@ -39,6 +39,7 @@
                 <button onclick="searchBooks()">Search</button>
                 <div class="result">
                     <ul id="result-container"></ul>
+                    <button id="moreButton" onclick="loadMore()"><li><a href="index.php">More</a></li></button>
                 </div>
             </div>
         </div>

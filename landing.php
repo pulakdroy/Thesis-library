@@ -80,14 +80,6 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     </nav>
     </header>
 
-    <!-- <script>
-        // Function to open the popup
-        function openPopup() {
-            document.getElementById("popup").style.display = "block";
-        }
-
-        // Rest of your JavaScript code
-    </script> -->
 
     <div class="page">
         <div class="page2">
@@ -97,10 +89,15 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
                 <button onclick="searchBooks()">Search</button>
                 <div class="result">
                     <ul id="result-container"></ul>
+                    <button id="moreButton" onclick="loadMore()"><li><a href="index.php">More</a></li></button>
                 </div>
             </div>
+
         </div>
     </div>
+
+
+
 
     <script src="search.js"></script>
 

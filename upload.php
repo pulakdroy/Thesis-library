@@ -1,3 +1,50 @@
+<?php
+require_once("DBconnect.php"); // Include your database connection file
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Sanitize and validate the input data as needed
+
+    $thesisName = $_POST['thesisname'];
+    $thesisTopic = $_POST['thesisTopic'];
+    $supervisorName = $_POST['supervisorName'];
+    $session = $_POST['session'];
+    $studentName = $_POST['studentName'];
+    $studentId = $_POST['student_id'];
+
+    // Read the file content
+    $fileContent = file_get_contents($_FILES["file"]["tmp_name"]);
+
+    // Insert data into the database
+    $insertSql = "INSERT INTO thesis_files (thesis_name, thesis_topic, supervisor_name, session, student_name, student_id, file_content) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    $stmt = mysqli_prepare($conn, $insertSql);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "ssssssb", $thesisName, $thesisTopic, $supervisorName, $session, $studentName, $studentId, $fileContent);
+
+        if (mysqli_stmt_send_long_data($stmt, 6, $fileContent)) {
+            if (mysqli_stmt_execute($stmt)) {
+                // Insert successful
+                mysqli_stmt_close($stmt);
+
+                // Redirect to homepage.php
+                header("Location: homepage.php");
+                exit();
+            } else {
+                // Handle the case where the insert fails
+                echo "Error storing data: " . mysqli_error($conn);
+            }
+        } else {
+            echo "Error sending file data.";
+        }
+    } else {
+        echo "Error preparing statement: " . mysqli_error($conn);
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,11 +79,11 @@
 
     <div class="container">
     <h2>Upload a Thesis</h2>
-        <form>
-            <label for="username">Thesis ID:</label>
-            <input type="text" id="username" name="username" required>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <!-- <label for="username">Thesis ID:</label>
+            <input type="text" id="username" name="username" required> -->
 
-            <label for="password">Thesis Name:</label>
+            <label for="thesisname">Thesis Name:</label>
             <input type="text" id="thesisname" name="thesisname" required>
 
             <label for="thesisTopic">Thesis Topic:</label>
