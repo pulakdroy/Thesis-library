@@ -9,17 +9,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
-    <!-- <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h2></h2>
-            <p><h5>Continue with g-suite</h5></p>
-            <form id="emailForm">
-                <input type="email" placeholder="g-suite" id="email" name="email" required>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-    </div> -->
+
     <script src="script1.js"></script>
     <header>
         <nav class="navbar">

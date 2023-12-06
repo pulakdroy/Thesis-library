@@ -1,6 +1,24 @@
 <?php
 
-require_once("DBconnect.php");
+$servername = 'localhost';
+$username = "root";
+$password = "";
+$dbname = "thesis_library";
+
+//Create connection 
+$conn = new mysqli($servername,$username,$password,$dbname);
+
+
+//Check connection
+if($conn->connect_error) {
+    die("Connection failed: ". $conn->connect_error);
+}
+else{
+    mysqli_select_db($conn, $dbname);
+    // echo "Connection Successful";
+}
+    
+
 
 session_start();
 
@@ -11,7 +29,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Handle form submission
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize and validate the input data as needed
 
     // Update user information in the database
@@ -22,35 +40,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $department = $_POST['department'];
 
     // Update the user details in the database (modify this query based on your database structure)
-    $updateSql = "UPDATE create_account SET name = '$name', email = '$email', phone_number = '$phone_number', department = '$department' WHERE student_id = '$student_Id'";
+    $updateSql = "UPDATE create_account SET name = '$name', email = '$email', phone_number = '$phone_number', department = '$department' WHERE student_id = '$studentId'";
     echo "Name: $name, Email: $email, Phone Number: $phone_number, Department: $department";
-
 
     if (mysqli_query($conn, $updateSql)) {
         // Update successful
-        header("Location: profile.php");
-        exit();
+        echo "Update successful";
     } else {
         // Handle the case where the update fails
         $error_message = "Error updating user information: " . mysqli_error($conn);
         echo $error_message; // Display the error for debugging purposes
     }
-    
 }
-
 // Fetch user details for pre-filling the form
 $studentId = $_SESSION['user_id'];
 $fetchUserSql = "SELECT * FROM create_account WHERE student_id = '$studentId'";
 $result = mysqli_query($conn, $fetchUserSql);
-
-
 
 if ($result && mysqli_num_rows($result) > 0) {
     $userDetails = mysqli_fetch_assoc($result);
 } else {
     // Handle the case where user details couldn't be fetched
     $error_message = "Error fetching user information";
+    echo '<p style="color: red;">' . $error_message . '</p>';
 }
+
 
 ?>
 
@@ -89,7 +103,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
     ?>
 
-    <form method="post" action="">
+    <form method="post">
+        <input type="hidden" value="<?php echo isset($userDetails['name']) ? $userDetails['name'] : ''; ?>">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="<?php echo isset($userDetails['name']) ? $userDetails['name'] : ''; ?>" required>
 
