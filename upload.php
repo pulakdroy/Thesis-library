@@ -1,47 +1,52 @@
 <?php
-require_once("DBconnect.php"); // Include your database connection file
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Sanitize and validate the input data as needed
+require_once("DBconnect.php"); // Include your database connection details
 
-    $thesisName = $_POST['thesisname'];
-    $thesisTopic = $_POST['thesisTopic'];
-    $supervisorName = $_POST['supervisorName'];
-    $session = $_POST['session'];
-    $studentName = $_POST['studentName'];
-    $studentId = $_POST['student_id'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Handle other form fields
 
-    // Read the file content
+    $thesisname = isset($_POST["thesisname"]) ? mysqli_real_escape_string($conn, $_POST["thesisname"]) : "";
+    $thesisTopic = isset($_POST["thesisTopic"]) ? mysqli_real_escape_string($conn, $_POST["thesisTopic"]) : "";
+    $supervisorName = isset($_POST["supervisorName"]) ? mysqli_real_escape_string($conn, $_POST["supervisorName"]) : "";
+    $session = isset($_POST["session"]) ? mysqli_real_escape_string($conn, $_POST["session"]) : "";
+    $studentName = isset($_POST["studentName"]) ? mysqli_real_escape_string($conn, $_POST["studentName"]) : "";
+    $student_id = isset($_POST["student_id"]) ? mysqli_real_escape_string($conn, $_POST["student_id"]) : "";
+
+
+
+    // File upload handling
     $fileContent = file_get_contents($_FILES["file"]["tmp_name"]);
 
-    // Insert data into the database
-    $insertSql = "INSERT INTO thesis_files (thesis_name, thesis_topic, supervisor_name, session, student_name, student_id, file_content) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    $stmt = mysqli_prepare($conn, $insertSql);
+    // Define the folder where the PDF file will be saved
+    $folder = "thesis.papers/";
 
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "ssssssb", $thesisName, $thesisTopic, $supervisorName, $session, $studentName, $studentId, $fileContent);
+    // Create the folder if it does not exist
+    if (!file_exists($folder)) {
+        mkdir($folder, 0777, true);
+    }
 
-        if (mysqli_stmt_send_long_data($stmt, 6, $fileContent)) {
-            if (mysqli_stmt_execute($stmt)) {
-                // Insert successful
-                mysqli_stmt_close($stmt);
+    // Generate a unique filename for the PDF file
+    $filename = $folder . uniqid() . ".pdf";
 
-                // Redirect to homepage.php
-                header("Location: homepage.php");
-                exit();
-            } else {
-                // Handle the case where the insert fails
-                echo "Error storing data: " . mysqli_error($conn);
-            }
-        } else {
-            echo "Error sending file data.";
-        }
+    // Save the PDF file to the specified folder
+    file_put_contents($filename, $fileContent);
+
+    // Insert data into database with the file link
+    $sql = "INSERT INTO thesis_files (thesis_name, thesis_topic, supervisor_name, session, student_name, student_id, file_content) 
+            VALUES ('$thesisname', '$thesisTopic', '$supervisorName', '$session', '$studentName', '$student_id', '$filename')";
+
+    if ($conn->query($sql) === TRUE) {
+        // echo "File uploaded successfully and data inserted into the database.";
+        header("Location: homepage.php");
+        exit();
     } else {
-        echo "Error preparing statement: " . mysqli_error($conn);
+        echo "Error: " . $conn->error;
     }
 }
+
+// Close the database connection
+$conn->close();
 ?>
 
 
@@ -101,9 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="student_id">Students ID:</label>
             <input type="text" id="student_id" name="student_id" required>
 
-            <label for="file">Choose a file (PDF, DOC, DOCX):</label>
+            <label for="file">Choose a file (PDF):</label>
 
-            <input type="file" id="file" name="file" accept=".pdf, .doc, .docx" required>
+            <input type="file" id="file" name="file" accept=".pdf" required>
 
             <button type="submit">Upload</button>
         </form>

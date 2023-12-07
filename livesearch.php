@@ -47,6 +47,8 @@ if(isset($_POST['input'])){
                         <td><?php echo $supervisorName; ?></td>
                         <td><?php echo $session; ?></td>
                         <td><?php echo $fileContent; ?></td>
+                        <td colspan="6"><a href="<?php echo $fileContent; ?>" target="_blank">View PDF</a></td>;
+
                     </tr>
                     <?php
                 }

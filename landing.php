@@ -81,7 +81,7 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
     </header>
 
 
-    <div class="page">
+    <!-- <div class="page">
         <div class="page2">
             <p>Want to see thesis paper from students?</p>
             <div class="container">
@@ -94,8 +94,24 @@ if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
             </div>
 
         </div>
+    </div> -->
+    
+    <div class="page">
+        <div class="page2">
+            <p>Want to see thesis paper from students?</p>
+            <div class="container">
+                <input type="text" id="search-box" placeholder="Search by Topic or Supervisor">
+                <button onclick="searchBooks()">Search</button>
+                <div class="result">
+                    <ul id="result-container"></ul>
+                </div>
+                <div class="more-section">
+                    <p>If you want to explore more thesis papers, click the button below:</p>
+                    <button id="moreButton" onclick="loadMore()"><li><a href="index.php">More</a></li></button>
+                </div>
+            </div>
+        </div>
     </div>
-
 
 
 
