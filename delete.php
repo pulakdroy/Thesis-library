@@ -1,55 +1,55 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funda of Web IT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 
-require_once("DBconnect.php");
+                <?php 
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php
+                        unset($_SESSION['status']);
+                    }
+                ?>
 
-if (isset($_GET["Student_ID"])) {
-    $id = $_GET["Student_ID"];
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h4>How to Delete Data from Database by ID in PHP MySQL</h4>
+                    </div>
+                    <div class="card-body">
 
-    // Debugging output
-    echo "Student ID: " . $id . "<br>";
+                        <form action="code.php" method="POST">
+                            <div class="froum-group mb-3">
+                                <label for="">Deleteing Student ID</label>
+                                <input type="text" name="delete_stud_id" class="form-control">
+                            </div>
+                            <div class="froum-group mb-3">
+                                <button type="submit" name="stud_delete_btn" class="btn btn-primary">Delete Data</button>
+                            </div>
+                        </form>
 
-    $checkSql = "SELECT * FROM create_account WHERE Student_ID = $id";
-    $result = mysqli_query($conn, $checkSql);
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Debugging output
-        echo "Student ID exists in the database.<br>";
-
-        $sql = "DELETE FROM create_account WHERE Student_ID = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-
-        if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "i", $id);
-
-            // Debugging output
-            echo "SQL Query: " . $sql . "<br>";
-
-            if (mysqli_stmt_execute($stmt)) {
-                if (mysqli_stmt_affected_rows($stmt) > 0) {
-                    // Deletion successful
-                    header("Location: landing.php?msg=Data deleted successfully");
-                    exit();
-                } else {
-                    // No rows affected, student ID not found
-                    echo "Student ID not found after deletion.";
-                }
-            } else {
-                // Error in executing the statement
-                die("Error in executing the statement: " . mysqli_error($conn));
-            }
-
-            mysqli_stmt_close($stmt);
-        } else {
-            // Error in preparing the statement
-            die("Error in preparing the statement: " . mysqli_error($conn));
-        }
-    } else {
-        echo "Student ID not found in the database.";
-    }
-} else {
-    // Student_ID not set in the request
-    echo "Error: Student_ID is not set in the request.";
-}
-?>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

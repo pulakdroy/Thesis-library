@@ -4,7 +4,6 @@ include 'DBconnect.php';
 session_start();
 var_dump($_SESSION);
 
-// Include database connection file
 
 // Define variables
 $email = mysqli_real_escape_string($conn, $_POST['email']);

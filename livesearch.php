@@ -27,6 +27,8 @@ if(isset($_POST['input'])){
                     <th>thesis_topic</th>
                     <th>supervisor</th>
                     <th>session</th>
+                    <th>student_name</th>
+                    <th>student_id</th>
                     <th>file</th>
                 </tr>
             </thead>
@@ -38,6 +40,8 @@ if(isset($_POST['input'])){
                     $thesisTopic = $row["thesis_topic"];
                     $supervisorName = $row["supervisor_name"];
                     $session = $row["session"];
+                    $studentName = $row["student_name"];
+                    $student_id = $row["student_id"];
                     $fileContent = $row["file_content"];
                     ?>
                     <tr>
@@ -46,6 +50,8 @@ if(isset($_POST['input'])){
                         <td><?php echo $thesisTopic; ?></td>
                         <td><?php echo $supervisorName; ?></td>
                         <td><?php echo $session; ?></td>
+                        <td><?php echo $studentName; ?></td>
+                        <td><?php echo $student_id; ?></td>
                         <td><?php echo $fileContent; ?></td>
                         <td colspan="6"><a href="<?php echo $fileContent; ?>" target="_blank">View PDF</a></td>;
 

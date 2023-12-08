@@ -40,16 +40,10 @@
             <label>Password </label>
             <input type="password" name="password" required>
             <input type="submit" name="submit" value="Submit">
-        </form>
-    
+        </form>  
         <p> Alrady have an account?<a href="studentlog.php">Login</a> </p>
-    
-
-
     </div>   
     </div>
     <form>
-
 </body>
-
 </html>

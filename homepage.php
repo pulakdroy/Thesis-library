@@ -39,6 +39,9 @@
                 <button onclick="searchBooks()">Search</button>
                 <div class="result">
                     <ul id="result-container"></ul>
+                </div>
+                <div class="more-section">
+                    <p>If you want to explore more thesis papers, click the button below:</p>
                     <button id="moreButton" onclick="loadMore()"><li><a href="index.php">More</a></li></button>
                 </div>
             </div>

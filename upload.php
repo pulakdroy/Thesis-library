@@ -85,34 +85,22 @@ $conn->close();
     <div class="container">
     <h2>Upload a Thesis</h2>
         <form action="upload.php" method="post" enctype="multipart/form-data">
-            <!-- <label for="username">Thesis ID:</label>
-            <input type="text" id="username" name="username" required> -->
-
             <label for="thesisname">Thesis Name:</label>
             <input type="text" id="thesisname" name="thesisname" required>
-
             <label for="thesisTopic">Thesis Topic:</label>
             <input type="text" id="thesisTopic" name="thesisTopic" required>
-
             <label for="supervisorName">Supervisor's Name:</label>
             <input type="text" id="supervisorName" name="supervisorName" required>
-
             <label for="session">Session:</label>
             <input type="text" id="session" name="session" required> 
-
             <label for="studentName">Students Name:</label>
             <input type="text" id="studentName" name="studentName" required>
-
             <label for="student_id">Students ID:</label>
             <input type="text" id="student_id" name="student_id" required>
-
             <label for="file">Choose a file (PDF):</label>
-
             <input type="file" id="file" name="file" accept=".pdf" required>
-
             <button type="submit">Upload</button>
         </form>
-
 
     </div>
 
