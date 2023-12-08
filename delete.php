@@ -1,55 +1,55 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funda of Web IT</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<?php
+require_once("DBconnect.php");
+
+session_start();
+
+function sanitizeInput($input) {
+    return htmlspecialchars(trim($input));
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["Student_ID"])) {
+    $student_id = sanitizeInput($_SESSION["user_id"]);
+
+    // Delete the user's profile from the database
+    $deleteSql = "DELETE FROM create_account WHERE student_id=?";
     
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    // Use prepared statements to prevent SQL injection
+    $stmt = mysqli_prepare($conn, $deleteSql);
+    mysqli_stmt_bind_param($stmt, 'i', $student_id);
+    $deleteResult = mysqli_stmt_execute($stmt);
 
-                <?php 
-                    if(isset($_SESSION['status']))
-                    {
-                        ?>
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        <?php
-                        unset($_SESSION['status']);
-                    }
-                ?>
-
-                <div class="card mt-5">
-                    <div class="card-header">
-                        <h4>How to Delete Data from Database by ID in PHP MySQL</h4>
-                    </div>
-                    <div class="card-body">
-
-                        <form action="code.php" method="POST">
-                            <div class="froum-group mb-3">
-                                <label for="">Deleteing Student ID</label>
-                                <input type="text" name="delete_stud_id" class="form-control">
-                            </div>
-                            <div class="froum-group mb-3">
-                                <button type="submit" name="stud_delete_btn" class="btn btn-primary">Delete Data</button>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
+    if ($deleteResult) {
+        // HTML content for profile deleted with Bootstrap styling
+        ?>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Profile Deleted</title>
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        </head>
+        <body class="bg-light">
+            <div class="container mt-5">
+                <h2 class="text-danger">Your Profile has been Deleted</h2>
+                <p class="lead">We're sorry to see you go. If you have any feedback, please let us know.</p>
+                <p><a href="landing.php" class="btn btn-primary">Go to Homepage</a></p>
             </div>
-        </div>
-    </div>
+            <!-- Bootstrap JS (optional, for certain components) -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        </body>
+        </html>
+        <?php
+        exit();
+    } else {
+        echo "Error: Unable to delete profile. " . mysqli_error($conn);
+    }
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    // Close the statement
+    mysqli_stmt_close($stmt);
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
