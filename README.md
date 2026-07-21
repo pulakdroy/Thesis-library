@@ -1,2 +1,2 @@
 # Thesis-library
-This was our project fro Database Management(CSE370) course.
+This was our project for Database Management(CSE370) course.
